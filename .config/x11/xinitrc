@@ -1,0 +1,21 @@
+#!/bin/sh
+
+xrandr --newmode "1368x768_60.00"   85.25  1368 1440 1576 1784  768 771 781 798 -hsync +vsync
+xrandr --addmode VGA-1 1368x768_60.00
+xrandr -s 1368x768
+set_wallpaper &
+dwmblocks &
+xcompmgr &
+dunst &
+xset r rate 300 50 &
+sxhkd &
+xmodmap ~/.config/xmodmap/Xmodmap &
+unclutter &
+
+xmodmap -e "clear lock"
+xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+
+sudo mount /dev/sdb1 hdisk
+
+exec dwm > /dev/null 2>&1
+

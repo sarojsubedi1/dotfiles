@@ -1,0 +1,36 @@
+# My Hotkeys
+
+Print
+	maim --select | tee ~/pic/ss/$(date +%s).jpg | xclip -sel c -t image/jpg
+
+super + Print 
+	maim | tee ~/pic/ss/$(date +%s).jpg | xclip -sel c -t image/jpg
+
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	pamixer -{i,d,t} 2; kill -34 $(cat ~/.cache/pidofbar)
+
+super + x 
+	sudo system_action
+
+super + i
+	sxiv -rt "$HOME/pic/wall"
+
+super + p
+        rofi -show drun 
+
+super + m
+	emoji
+
+super + o ; {b,f,d}
+	{brave,firefox,discord}
+
+super + shift + Return
+	kitty
+
+super + shift + i
+	cpcolor
+
+# reload sxhkd configuration file
+super + shift +j		
+ 	pkill -USR1 -x sxhkd ;\
+ 		notify-send "sxhkd: sxhkd has been restarted."
